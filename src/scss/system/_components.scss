@@ -10,7 +10,7 @@
 /* =============================
 			Style animate
 ============================= */
-.animate-block {
+.a-b {
   visibility: visible;
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -24,23 +24,23 @@
     opacity: 0;
     transform: translateY(20px);
 
-    &.animate-block--to-left {
+    &.a-b--to-left {
       transform: translateX(25px);
     }
 
-    &.animate-block--to-right {
+    &.a-b--to-right {
       transform: translateX(-25px);
     }
 
-    &.animate-block--opacity {
+    &.a-b--opacity {
       transform: translateY(0);
     }
 
-    &.animate-block--scale {
+    &.a-b--scale {
       transform: scale(0.6) translateY(0);
     }
 
-    &.animate-block--rotate-Y {
+    &.a-b--rotate-Y {
       transform: translateY(-50%) rotateY(-90deg);
     }
   }
@@ -49,9 +49,7 @@
     transition-delay: 0.2s;
 
     @media only screen and (max-width: 600px) {
-      &:not(.first-screen__subtitle) {
-        transition-delay: 0s;
-      }
+      transition-delay: 0s;
     }
   }
 
@@ -59,9 +57,7 @@
     transition-delay: 0.4s;
 
     @media only screen and (max-width: 600px) {
-      &:not(.first-screen__btn) {
-        transition-delay: 0s;
-      }
+      transition-delay: 0s;
     }
   }
 

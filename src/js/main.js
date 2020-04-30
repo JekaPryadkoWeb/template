@@ -1,43 +1,175 @@
-// = ../static/libs/jquery/dist/jquery.min.js
-$(document).ready(() => {
-  initScrollAnimation()
-  function initScrollAnimation() {
-    const animateBlock = $(`.animate-block`)
+//= ../static/libs/jquery/dist/jquery.min.js
+//= ../static/libs/userDetect.js
+// = ../static/libs/slick/slick.min.js
+// = ../static/libs/arcticModal/arcticmodal/jquery.arcticmodal.js
 
-    function animate() {
-      const winScroll = $(window).scrollTop()
-      const animOffset = $(window).height() / 1.3
+(function ($) {
+  let bit
+  window.bit = $.extend(
+    {},
+    {
+      init() {
+        $(`body`)
+          .addClass(`os-` + window.jscd.os.toLowerCase())
+          .addClass(`browser-` + window.jscd.browser.toLowerCase())
+          .attr(`data-os-version`, window.jscd.osVersion.toLowerCase())
 
-      animateBlock.each(function () {
-        const offset = $(this).offset().top
-        if ($(this).hasClass(`animate-block--before`)) {
-          if (offset <= winScroll + animOffset) {
-            $(this).removeClass(`animate-block--before`)
+        bit.initScrollAnimation()
+        bit.formValidation()
+      },
+
+      initScrollAnimation() {
+        const animateBlock = $(`.a-b`)
+
+        function animate() {
+          const winHeight = $(window).height()
+          const winScroll = $(window).scrollTop()
+          animateBlock.each(function () {
+            const offset = $(this).offset().top
+            const coef = 0.9
+
+            if ($(this).hasClass(`a-b--before`)) {
+              if (offset <= winScroll + winHeight * coef) {
+                $(this).removeClass(`a-b--before`)
+              }
+            }
+          })
+
+          const bg = $(`.bg__js`)
+          bg.each(function () {
+            const offset = $(this).offset().top
+            const coef = 1.5
+            if (!$(this).hasClass(`bg_done`)) {
+              if (offset <= winScroll + winHeight * coef) {
+                const imgBg = `url(` + $(this).data(`img`) + `)`
+                $(this).css(`background-image`, imgBg)
+                $(this).addClass(`bg_done`)
+              }
+            }
+          })
+
+          const src = $(`.src__js`)
+          src.each(function () {
+            const offset = $(this).offset().top
+            const coef = 1.5
+
+            if (!$(this).hasClass(`src_done`)) {
+              if (offset <= winScroll + winHeight * coef) {
+                const imgSrc = $(this).data(`src`)
+                $(this).attr(`src`, imgSrc)
+                $(this).addClass(`src_done`)
+              }
+            }
+          })
+        }
+        $(window).scroll(function () {
+          animate()
+        })
+        $(window).on(`load`, function () {
+          animate()
+        })
+      },
+
+      formValidation() {
+        function validateEmail(email) {
+          const pattern = /^([\w-.]+)@((\[[0-9]{1,9}\.[0-9]{1,9}\.[0-9]{1,9}\.)|(([\w-]+\.)+))([a-zA-Z]{2,9}|[0-9]{1,9})(\]?)$/
+          return pattern.test(email)
+        }
+
+        function validatePhone(phone) {
+          const pattern = /^-?\d+$/
+          return pattern.test(phone)
+        }
+
+        $(`.email_js`).on(`keyup change blur`, function () {
+          const email = $(this).val()
+          if (!validateEmail(email) || email.length <= 8) {
+            $(this).addClass(`disabled`)
+          } else {
+            $(this).removeClass(`disabled`)
           }
-        }
-      })
+        })
 
-      const bg = $(`.bg__js`)
-      bg.each(function () {
-        const offset = $(this).offset().top
-        let newOffset = 1.001
-        if (winScroll > 10) {
-          newOffset = 0.5
-        }
-        if (!$(this).hasClass(`bg_done`)) {
-          if (offset <= winScroll + $(window).height() / newOffset) {
-            const imgBg = `url(` + $(this).data(`img`) + `.jpg` + `)`
-            $(this).css(`background-image`, imgBg)
-            $(this).addClass(`bg_done`)
+        $(`.phone_js`).on(`keyup change blur`, function () {
+          const phone = $(this).val()
+          if (!validatePhone(phone) || phone.length <= 8) {
+            $(this).addClass(`disabled`)
+          } else {
+            $(this).removeClass(`disabled`)
           }
-        }
-      })
+        })
+
+        $(`.text_js`).on(`keyup change blur`, function () {
+          const text = $(this).val()
+          if (text.length <= 2) {
+            $(this).addClass(`disabled`)
+          } else {
+            $(this).removeClass(`disabled`)
+          }
+        })
+
+        $(document).on(`submit`, `.validation_js`, function (e) {
+          e.preventDefault()
+          const email = $(this).find(`.email_js`)
+          const phone = $(this).find(`.phone_js`)
+          const text = $(this).find(`.text_js`)
+          const self = $(this)
+
+          if (email.length > 0) {
+            if (!validateEmail(email.val())) {
+              $(this).find(`.email_js`).addClass(`disabled`)
+            } else {
+              $(this).find(`.email_js`).removeClass(`disabled`)
+            }
+          }
+
+          if (phone.length > 0) {
+            if (!validatePhone(phone.val())) {
+              $(this).find(`.phone_js`).addClass(`disabled`)
+            } else {
+              $(this).find(`.phone_js`).removeClass(`disabled`)
+            }
+          }
+
+          if (text.length > 0) {
+            text.each(function () {
+              if ($(this).val().length <= 2) {
+                $(this).addClass(`disabled`)
+              } else {
+                $(this).removeClass(`disabled`)
+              }
+            })
+          }
+
+          if (
+            email.hasClass(`disabled`) ||
+            phone.hasClass(`disabled`) ||
+            text.hasClass(`disabled`)
+          ) {
+            self.find(`button`).addClass(`error-shake`)
+            self.addClass(`highlight`)
+            setTimeout(function () {
+              self.removeClass(`highlight`)
+            }, 1500)
+            setTimeout(function () {
+              self.find(`button`).removeClass(`error-shake`)
+            }, 1500)
+            return false
+          } else {
+            // Send form
+            return true
+          }
+        })
+
+        $(`.validation_js button`).on(`mouseover`, function () {
+          $(this).closest(`.validation_js`).addClass(`highlight`)
+        })
+        $(`.validation_js button`).on(`mouseleave`, function () {
+          $(this).closest(`.validation_js`).removeClass(`highlight`)
+        })
+      },
     }
-    $(window).scroll(function () {
-      animate()
-    })
-    $(window).on(`load`, function () {
-      animate()
-    })
-  }
-})
+  )
+
+  bit.init()
+})(jQuery)
