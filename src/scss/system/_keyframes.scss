@@ -1,0 +1,25 @@
+@keyframes btn_error_shake {
+  0% {
+    transform: translate(20px);
+  }
+
+  20% {
+    transform: translate(-20px);
+  }
+
+  40% {
+    transform: translate(10px);
+  }
+
+  60% {
+    transform: translate(-10px);
+  }
+
+  80% {
+    transform: translate(5px);
+  }
+
+  100% {
+    transform-origin: translate(0);
+  }
+}

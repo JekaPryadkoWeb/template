@@ -1,0 +1,69 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "start template",
+  "author": "Jeka",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JekaPryadkoWeb/project.git"
+  },
+  "scripts": {
+    "start": "gulp start",
+    "build": "gulp build",
+    "test": "editorconfig-cli && stylelint ./src/scss/**/*.scss --syntax scss && eslint ./src/js",
+    "stylelint-fix": "stylelint ./src/scss/**/*.scss --fix --syntax scss",
+    "eslint-fix": "eslint ./src/js/** --fix"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@htmlacademy/editorconfig-cli": "^1.0.0",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "editorconfig-cli": "^0.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-htmlacademy": "^0.5.2",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-rigger": "^0.5.8",
+    "gulp-sass": "^4.1.0",
+    "gulp-shorthand": "^1.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylelint": "^13.0.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-svgmin": "^2.2.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-w3c-html-validator": "^2.0.1",
+    "husky": "^4.2.5",
+    "stylelint": "^13.3.3",
+    "stylelint-config-htmlacademy": "^0.1.4",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-standard-scss": "^1.1.0",
+    "stylelint-scss": "^3.17.1"
+  },
+  "editorconfig-cli": [
+    "src/*.html",
+    "src/js/**/*.js",
+    "src/img/**/*.svg",
+    "src/scss/**/*.{scss}"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test && npm run build"
+    }
+  }
+}

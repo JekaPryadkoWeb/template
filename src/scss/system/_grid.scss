@@ -1,0 +1,17 @@
+$grid-max-width: 1170px;
+$grid-gutter: 30px;
+
+.container {
+  display: block;
+  width: 100%;
+  max-width: $grid-max-width;
+  margin: 0 auto;
+  position: relative;
+  padding-left: ($grid-gutter / 2);
+  padding-right: ($grid-gutter / 2);
+
+  &--no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
