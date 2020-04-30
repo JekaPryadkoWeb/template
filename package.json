@@ -49,6 +49,8 @@
     "gulp-uglify": "^3.0.2",
     "gulp-w3c-html-validator": "^2.0.1",
     "husky": "^4.2.5",
+    "lodash.template": "^4.5.0",
+    "merge": "^1.2.1",
     "stylelint": "^13.3.3",
     "stylelint-config-htmlacademy": "^0.1.4",
     "stylelint-config-standard": "^20.0.0",
