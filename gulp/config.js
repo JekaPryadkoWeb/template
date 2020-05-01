@@ -7,7 +7,7 @@ module.exports = {
     buildHtml: 'build',
 
     srcPages: 'src/html/*.html',
-    buildPages: 'build',
+    buildPages: 'build/pages',
 
     srcLibs: 'src/static/libs/*',
     buildLibs: 'build/assets/libs',
