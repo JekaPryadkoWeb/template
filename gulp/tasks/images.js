@@ -1,27 +1,23 @@
-const gulp = require("gulp");
-const imagemin = require("gulp-imagemin");
-const svgSprite = require("gulp-svg-sprite");
-const svgmin = require("gulp-svgmin");
-const config = require('../config');
+const gulp = require("gulp")
+const imagemin = require("gulp-imagemin")
+const svgSprite = require("gulp-svg-sprite")
+const svgmin = require("gulp-svgmin")
+const webp = require("gulp-webp")
+const config = require("../config")
 
 module.exports.images = function images() {
   return gulp
     .src(config.path.srcImg)
     .pipe(
       imagemin([
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.mozjpeg({
-          quality: 75,
-          progressive: true,
-        }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
-        }),
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.mozjpeg({progressive: true}),
+        imagemin.optipng({ optimizationLevel: 3}),
+        imagemin.svgo()
       ])
     )
-    .pipe(gulp.dest(config.path.buildImg));
-};
+    .pipe(gulp.dest(config.path.buildImg))
+}
 
 module.exports.sprite = function sprite() {
   return gulp
@@ -47,5 +43,12 @@ module.exports.sprite = function sprite() {
         },
       })
     )
-    .pipe(gulp.dest(config.path.buildSprite));
-};
+    .pipe(gulp.dest(config.path.buildSprite))
+}
+
+module.exports.webp = function images() {
+  return gulp
+    .src(config.path.srcImg)
+    .pipe(webp({quality: 90}))
+    .pipe(gulp.dest(config.path.buildImg))
+}

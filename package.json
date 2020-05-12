@@ -11,7 +11,11 @@
   "scripts": {
     "start": "gulp start",
     "build": "gulp build",
-    "test": "editorconfig-cli && stylelint ./src/scss/**/*.scss --syntax scss && eslint ./src/**/*js",
+    "test": "npm run editorconfig && npm run stylelint && npm run eslint",
+    "test-fix": "npm run stylelint-fix && npm run eslint-fix",
+    "editorconfig": "editorconfig-cli",
+    "stylelint": "stylelint ./src/scss/**/*.scss --syntax scss",
+    "eslint": "eslint ./src/**/*js",
     "stylelint-fix": "stylelint ./src/scss/**/*.scss --fix --syntax scss",
     "eslint-fix": "eslint ./src/js/** --fix"
   },
@@ -48,6 +52,7 @@
     "gulp-svgmin": "^2.2.0",
     "gulp-uglify": "^3.0.2",
     "gulp-w3c-html-validator": "^2.0.1",
+    "gulp-webp": "^4.0.1",
     "husky": "^4.2.5",
     "lodash.template": "^4.5.0",
     "merge": "^1.2.1",

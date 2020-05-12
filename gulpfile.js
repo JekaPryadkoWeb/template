@@ -2,7 +2,7 @@ const gulp = require("gulp")
 
 const serve = require("./gulp/tasks/serve")
 const { html, pages } = require("./gulp/tasks/html")
-const { images, sprite } = require("./gulp/tasks/images")
+const { images, sprite, webp } = require("./gulp/tasks/images")
 const scripts = require("./gulp/tasks/scripts")
 const styles = require("./gulp/tasks/styles")
 const clean = require("./gulp/tasks/clean")
@@ -24,6 +24,7 @@ const dev = gulp.parallel(
   pages,
   images,
   sprite,
+  webp,
   scripts,
   styles,
   libs,
