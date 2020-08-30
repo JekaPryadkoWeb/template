@@ -11,7 +11,10 @@ module.exports.images = function images() {
     .pipe(
       imagemin([
         imagemin.gifsicle({interlaced: true}),
-        imagemin.mozjpeg({progressive: true}),
+				imagemin.mozjpeg({
+					quality: 75,
+					progressive: true
+				}),
         imagemin.optipng({ optimizationLevel: 3}),
         imagemin.svgo()
       ])
@@ -22,13 +25,7 @@ module.exports.images = function images() {
 module.exports.sprite = function sprite() {
   return gulp
     .src(config.path.srcSprite)
-    .pipe(
-      svgmin({
-        js2svg: {
-          pretty: true,
-        },
-      })
-    )
+    .pipe(svgmin())
     .pipe(
       svgSprite({
         mode: {

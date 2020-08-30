@@ -18,16 +18,14 @@ module.exports = function styles() {
     .pipe(gulpIf(config.isDevMode, sourcemaps.init()))
     .pipe(sass())
     .pipe(gcmq())
-    .pipe(
-      autoprefixer({
-        cascade: false,
-      })
-    )
+    .pipe(autoprefixer({
+			cascade: false
+		}))
     .pipe(shorthand())
     .pipe(
       cleanCSS({
-        debug: true,
-        compatibility: "*",
+				compatibility: "*",
+				level: 2
       })
     )
     .pipe(gulpIf(config.isDevMode, sourcemaps.write()))

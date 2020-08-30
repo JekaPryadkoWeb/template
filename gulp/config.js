@@ -1,30 +1,28 @@
-const isDevMode = false;
+const util = require('gulp-util');
 
 module.exports = {
-  isDevMode,
-  path: {
+	isProdMode: util.env.production,
+	isDevMode: !util.env.production,
+	path: {
     srcHtml: 'src/*.html',
     buildHtml: 'build',
 
     srcPages: 'src/html/*.html',
     buildPages: 'build/pages',
 
-    srcLibs: 'src/static/libs/*',
-    buildLibs: 'build/assets/libs',
+    srcStatic: 'src/static/**/*',
+    buildStatic: 'build/assets/',
 
-    srcAjax: 'src/static/ajax/*',
-    buildAjax: 'build/assets/ajax',
-
-    srcHtaccess: 'src/static/.htaccess',
+    srcHtaccess: 'src/.htaccess',
     buildHtaccess: 'build',
 
-    srcFonts: 'src/fonts/*',
+    srcFonts: 'src/fonts/**/*',
     buildFonts: 'build/assets/fonts',
 
-    srcStyles: 'src/scss/*.scss',
+    srcStyles: 'src/scss/**/*.scss',
     buildStyles: 'build/assets/css',
 
-    srcScripts: 'src/js/*.js',
+    srcScripts: 'src/js/**/*.js',
     buildScripts: 'build/assets/js',
 
     srcImg: 'src/img/**/*.{gif,png,jpg,svg,webp}',

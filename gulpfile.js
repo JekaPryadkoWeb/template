@@ -6,17 +6,9 @@ const { images, sprite, webp } = require("./gulp/tasks/images")
 const scripts = require("./gulp/tasks/scripts")
 const styles = require("./gulp/tasks/styles")
 const clean = require("./gulp/tasks/clean")
-const { libs, ajax, htaccess, fonts } = require("./gulp/tasks/static")
+const { static, htaccess, fonts } = require("./gulp/tasks/static")
 
 const config = require("./gulp/config")
-
-function setMode(isProduction = false) {
-  return (cb) => {
-    process.env.NODE_ENV = isProduction ? "production" : "development"
-    config.isDevMode = isProduction ? false : true
-    cb()
-  }
-}
 
 const dev = gulp.parallel(
   fonts,
@@ -27,11 +19,11 @@ const dev = gulp.parallel(
   webp,
   scripts,
   styles,
-  libs,
-  ajax,
+  static,
   htaccess
 )
 const build = gulp.series(clean, dev)
 
-module.exports.start = gulp.series(setMode(), build, serve)
-module.exports.build = gulp.series(setMode(true), build)
+module.exports.dev = gulp.series(build, serve)
+module.exports.build = gulp.series(build)
+

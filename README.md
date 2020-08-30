@@ -31,14 +31,3 @@ Gulp : 4.0.2
 1. To build the sources run:
 
    `npm run build`
-
-## Lint
-
-1. To check the code with linters:
-
-   `npm run test`
-
-2. If have some problem try fix auto, run
-
-   `npm run stylelint-fix`
-   `npm run eslint-fix`
