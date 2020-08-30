@@ -20,7 +20,7 @@ Gulp : 4.0.2
 
 2. Start the watch mode (Browsersync will serve files from the `build` folder), run:
 
-   `npm run start`
+   `npm run watch`
 
 3. Edit files in the `src` folder, and watch the result in your browser.
 
