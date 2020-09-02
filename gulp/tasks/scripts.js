@@ -1,6 +1,5 @@
 const gulp = require("gulp");
 const plumber = require("gulp-plumber");
-const gulpIf = require("gulp-if");
 const rename = require("gulp-rename");
 const wpstream = require('webpack-stream');
 const webpack = require('webpack');
@@ -39,6 +38,3 @@ module.exports = function script() {
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest(config.path.buildScripts));
 };
-
-
-// .pipe(gulpIf(config.isDevMode, sourcemaps.write()))
