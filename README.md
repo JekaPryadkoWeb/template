@@ -1,7 +1,7 @@
 ## Version environment
 
-Node: 13.5.0
-Npm: 6.13.4
+Node: 14.6.0
+Npm: 6.14.6
 Gulp CLI: 2.2.0
 Gulp : 4.0.2
 

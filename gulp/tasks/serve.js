@@ -22,16 +22,16 @@ module.exports = function serve(cb) {
     cors: true,
   });
 
-  gulp.watch(config.path.srcHtml, gulp.series(html, readyReload));
-  gulp.watch(config.path.srcPages, gulp.series(pages, readyReload));
-	gulp.watch(config.path.srcStyles, gulp.series(styles, readyReload));
-  gulp.watch(config.path.srcScripts, gulp.series(scripts, readyReload));
-  gulp.watch(config.path.srcImg, gulp.series(images, readyReload));
-  gulp.watch(config.path.srcImg, gulp.series(webp, readyReload));
-  gulp.watch(config.path.srcSprite, gulp.series(sprite, readyReload));
-	gulp.watch(config.path.srcFonts, gulp.series(fonts, readyReload));
-  gulp.watch(config.path.srcStatic, gulp.series(static, readyReload));
-  gulp.watch(config.path.srcHtaccess, gulp.series(htaccess, readyReload));
+  gulp.watch(config.path.watchHtml, gulp.series(html, readyReload));
+  gulp.watch(config.path.watchPages, gulp.series(pages, readyReload));
+	gulp.watch(config.path.watchStyles, gulp.series(styles, readyReload));
+  gulp.watch(config.path.watchScripts, gulp.series(scripts, readyReload));
+  gulp.watch(config.path.watchImg, gulp.series(images, readyReload));
+  gulp.watch(config.path.watchImg, gulp.series(webp, readyReload));
+  gulp.watch(config.path.watchSprite, gulp.series(sprite, readyReload));
+	gulp.watch(config.path.watchFonts, gulp.series(fonts, readyReload));
+  gulp.watch(config.path.watchStatic, gulp.series(static, readyReload));
+  gulp.watch(config.path.watchHtaccess, gulp.series(htaccess, readyReload));
 
   return cb();
 };

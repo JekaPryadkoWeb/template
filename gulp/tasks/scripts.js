@@ -12,7 +12,7 @@ module.exports = function script() {
     .pipe(plumber())
 		.pipe(wpstream({
       output: {
-        filename: 'main.js',
+        filename: config.path.outputFileScripts,
 			},
 			module: {
 				rules: [
