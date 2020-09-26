@@ -16,10 +16,9 @@ module.exports = {
 		watchStyles: 'src/scss/**/*.scss',
     buildStyles: 'build/assets/css',
 
-		srcScripts: 'src/js/main.js',
+		srcScripts: './src/js/*.js',
 		watchScripts: 'src/js/**/*.js',
 		buildScripts: 'build/assets/js',
-		outputFileScripts: 'main.js',
 
 		srcImg: 'src/img/**/*.{gif,png,jpg,svg,webp}',
 		watchImg: 'src/img/**/*.{gif,png,jpg,svg,webp}',

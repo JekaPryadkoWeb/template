@@ -16,7 +16,7 @@ function readyReload(cb) {
 
 module.exports = function serve(cb) {
   server.init({
-    server: "build",
+    server: config.path.serve,
     notify: false,
     open: true,
     cors: true,

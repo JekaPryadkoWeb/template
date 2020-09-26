@@ -19,6 +19,7 @@
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.12",
     "del": "^5.1.0",
+    "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.3.0",
@@ -37,6 +38,7 @@
     "gulp-util": "^3.0.8",
     "gulp-w3c-html-validator": "^2.0.1",
     "gulp-webp": "^4.0.1",
+    "path": "^0.12.7",
     "webpack": "^4.44.1",
     "webpack-stream": "^6.1.0"
   },
