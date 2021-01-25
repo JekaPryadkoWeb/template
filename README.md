@@ -81,9 +81,17 @@ gulp-webpack-starter
 ├── info
 ├── src
 │   ├── fonts
-│   ├── helpers
+│   ├── helpers
+│   │   ├── ajax
+│   │   └── libs
 │   ├── img
+│   │   ├── delete
+│   │   ├── favicon
+│   │   ├── images
+│   │   └── svg
+│   │        └── sprites
 │   ├── js
+│   │   └── module
 │   ├── scss
 │   └── views
 ├── .gitignore
