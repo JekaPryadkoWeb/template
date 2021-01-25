@@ -44,24 +44,23 @@ Gulp : 4.0.2
 ## :gear: Версия окружения
 | Программа    | Версия          |
 | --------     | ----------------|
-| `Node/`      | v14.6.0         |
-| `Npm/`       | v6.14.6         |
-| `Gulp/`      | v4.0.2          |
-| `Gulp CLI/`  | v2.2.0          |
+| `Node`       | v14.6.0         |
+| `Npm`        | v6.14.6         |
+| `Gulp`       | v4.0.2          |
+| `Gulp CLI`   | v2.2.0          |
 ## :fire: Особенности
-* используется компонентный подход
 * используется препроцессор [SCSS](https://sass-lang.com/)
 * используется транспайлер [Babel](https://babeljs.io/) для поддержки современного JavaScript (ES6) в браузерах
 * используется [Webpack](https://webpack.js.org/) для сборки JavaScript-модулей
+* используется компонентный подход
 * используется CSS-сетка на основе Bootstrap для быстрой адаптивной вёрстки
 * используется жёсткий кодгайд
 * используется проверка кода на ошибки перед коммитом
 
 
-## :hammer_and_wrench: Установка
-* установите [NodeJS](https://nodejs.org/en/)
-* скачайте сборку с помощью [Git](https://git-scm.com/downloads): ```git clone https://github.com/andreyalexeich/gulp-scss-starter.git```
-* установите ```gulp``` глобально: ```yarn global add gulp-cli```
+## :hammer_and_wrench: Установка локально
+* установите ```[NodeJS](https://nodejs.org/en/)```
+* установите ```gulp``` глобально: ```sudo npm install -g gulp``` или ```npm install -g gulp```
 * перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
 * скачайте необходимые зависимости: ```npm i```
 * чтобы начать работу с локальным сервером и html, введите команду: ```npm run dev``` (режим разработки)
