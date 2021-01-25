@@ -40,7 +40,7 @@ Gulp : 4.0.2
 
 
 
-# gulp-scss-starter
+# gulp-webpack-starter
 ## :gear: Версия окружения
 | Программа    | Версия          |
 | --------     | ----------------|
@@ -59,39 +59,37 @@ Gulp : 4.0.2
 
 
 ## :hammer_and_wrench: Установка локально
-* установите ```[NodeJS](https://nodejs.org/en/)```
-* установите ```gulp``` глобально: ```sudo npm install -g gulp``` или ```npm install -g gulp```
-* перейдите в скачанную папку со сборкой: ```cd gulp-scss-starter```
+* установите ```NodeJS```
+* установите ```Gulp``` глобально: ```sudo npm install -g gulp``` или ```npm install -g gulp```
+* перейдите в папку со сборкой
 * скачайте необходимые зависимости: ```npm i```
 * чтобы начать работу с локальным сервером и html, введите команду: ```npm run dev``` (режим разработки)
 * чтобы начать работу в проекте с wordpress, введите команду: ```npm run watch``` (режим разработки)
 * чтобы собрать проект, введите команду ```yarn run build``` (режим сборки)
 
-Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером. Режим сборки предполагает оптимизацию проекта: сжатие изображений, минифицирование CSS и JS-файлов для загрузки на сервер.
+Если вы всё сделали правильно, у вас должен открыться браузер с локальным сервером. Режим сборки предполагает оптимизацию проекта: сжатие изображений, минифицирование CSS и JS-файлов.
 
 ## :open_file_folder: Файловая структура
 
 ```
-gulp-scss-starter
-├── dist
-├── gulp-tasks
+gulp-webpack-starter
+├── assets
+├── gulp
+│   ├── tasks
+│   ├── config-sample.js
+│   └──  config
+├── info
 ├── src
-│   ├── blocks
 │   ├── fonts
+│   ├── helpers
 │   ├── img
 │   ├── js
-│   ├── styles
-│   ├── views
-│   └── .htaccess
-├── gulpfile.babel.js
-├── webpack.config.js
+│   ├── scss
+│   └── views
+├── .gitignore
+├── gulpfile.js
 ├── package.json
-├── .babelrc.js
-├── .bemrc.js
-├── .eslintrc.json
-├── .stylelintrc
-├── .stylelintignore
-└── .gitignore
+└── README.md
 ```
 
 * Корень папки:
