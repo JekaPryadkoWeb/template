@@ -73,36 +73,56 @@ Gulp : 4.0.2
 
 ```
 gulp-webpack-starter
-├── assets
-├── gulp
-│   ├── tasks
-│   ├── config-sample.js
-│   └──  config
-├── info
-├── src
-│   ├── fonts
-│   ├── helpers
-│   │   ├── ajax
-│   │   └── libs
-│   ├── img
-│   │   ├── delete
-│   │   ├── favicon
-│   │   ├── images
-│   │   └── svg
-│   │        └── sprites
-│   ├── js
-│   │   └── module
-│   ├── scss
-│   └── views
-├── .gitignore
-├── gulpfile.js
-├── package.json
-└── README.md
+├── assets                        - папка в которую попадаю обработаные файлы
+├── gulp                          - папка для конфигураци gulp
+│   ├── tasks                     - тут собраны все таски gulp
+│   ├── config-sample.js          - пример настройки проекта
+│   └── config.js                 - настройка проекта
+├── src                           - все основные файлы, которые вам нужны
+│   ├── fonts                     - папка с подключаемыми шрифтами
+│   ├── helpers                   - вспомогательные файлы
+│   │   ├── ajax                  - примеры ajax для тестирования локально
+│   │   └── libs                  - тут лежат библиотеки если нельзя их подключить с npm
+│   ├── img                       - графика
+│   │   ├── delete                - картинки которые используются как заглушки для верстки
+│   │   ├── favicon               - фавикон сайта
+│   │   ├── images                - растровые картинки проекта
+│   │   └── svg                   - svg картинки проекта
+│   │        └── sprites          - svg для спрайта
+│   ├── js                        - скрипты сайта
+│   │   ├── module                - отдельные модули
+│   │   └── example.js            - пример одного файла для страницы
+│   ├── scss                      - стили проекта
+│   │   ├── blocks                -
+│   │   │    ├── common           -
+│   │   │    ├── page             -
+│   │   │    └── example.scss     -
+│   │   ├── default               -
+│   │   │    ├── components.scss  -
+│   │   │    ├── default.scss     -
+│   │   │    ├── fonts.scss       - подключение шрифтов
+│   │   │    ├── grid.scss        - настройка контейнера для сайта
+│   │   │    └── reset.scss       - сброс стилей всех браузеров
+│   │   ├── helpers               - вспомагательные файлы
+│   │   │    ├── function.scss    - функции
+│   │   │    ├── mixins.scss      - миксины
+│   │   │    └── variables.scss   - переменные
+│   │   ├── vendors               - папка для внешних скриптов и библиотек
+│   │   │    └── libs.scss        - место где подключать все стили внешних библиотек
+│   │   └── example.scss          -
+│   └── views                     - HTML компоненты сайта
+│        ├── includes             -
+│        │    ├── common          - папка с переиспользуемыми блоками
+│        │    └── front           - пример папки с блоками для одной страницы
+│        └── example.html         - пример страницы
+├── .gitignore                    - файлы/папки игнорируемые Git
+├── gulpfile.js                   - конфиг для gulp
+├── webpack.config.js             - конфиг для webpack
+├── package.json                  - зависимости, скрипты и базовая информация
+└── README.md                     - описание проекта
 ```
 
 * Корень папки:
-    * ```.babelrc.js``` — настройки Babel
-    * ```.bemrc.js``` — настройки БЭМ
     * ```.eslintrc.json``` — настройки ESLint
     * ```.gitignore``` – запрет на отслеживание файлов Git'ом
     * ```.stylelintrc``` — настройки Stylelint
@@ -206,15 +226,3 @@ entry: {
 ## :hash: CSS-сетка smart-grid
 В сборщик включена CSS-сетка [smart-grid](https://github.com/dmitry-lavrik/smart-grid) от [Дмитрия Лаврика](https://dmitrylavrik.ru/). Она позволяет избавиться от
 лишних классов в разметке за счёт использования примесей в SCSS и ускоряет адаптивную вёрстку. Конфигурация уже настроена в соответствии с сеткой [Bootstrap](https://getbootstrap.com/). Инструкция по использованию [здесь](https://grid4web.ru/basics).
-
-## :point_right: Нужен SCSS + Pug?
-Используйте [эту](https://github.com/andreyalexeich/gulp-pug-starter/) сборку.
-
-## :yellow_heart: Нравится проект?
-Сообщайте мне о [багах](https://github.com/andreyalexeich/gulp-scss-starter/issues), ставьте звёздочку в правом верхнем углу, задонатьте мне на пиво :beer:
-* [На PayPal](https://www.paypal.me/andreyalexeich)
-* [На карту - 5536 9137 5288 1934](https://www.tinkoff.ru/cardtocard/)
-
-## :envelope: Контакты
-* ВКонтакте: [@andreyalexeich](https://vk.com/andreyalexeich)
-* Telegram: [@andreyalexeich](https://t-do.ru/andreyalexeich)
