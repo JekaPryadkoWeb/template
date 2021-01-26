@@ -93,13 +93,13 @@ gulp-webpack-starter
 │   │   ├── module                - отдельные модули
 │   │   └── example.js            - пример одного файла для страницы
 │   ├── scss                      - стили проекта
-│   │   ├── blocks                -
-│   │   │    ├── common           -
-│   │   │    ├── page             -
-│   │   │    └── example.scss     -
-│   │   ├── default               -
-│   │   │    ├── components.scss  -
-│   │   │    ├── default.scss     -
+│   │   ├── blocks                - примеры стилей вынесенных в блоки
+│   │   │    ├── common           - папка с переиспользуемыми блоками
+│   │   │    ├── page             - папка с уникальными блоками для страницы
+│   │   │    └── example.scss     - пример файла с блоками для страницы
+│   │   ├── default               - папка с дефолтными стилями для сайта
+│   │   │    ├── components.scss  - компоненты проекта
+│   │   │    ├── default.scss     - дефолтные стили для тегов
 │   │   │    ├── fonts.scss       - подключение шрифтов
 │   │   │    ├── grid.scss        - настройка контейнера для сайта
 │   │   │    └── reset.scss       - сброс стилей всех браузеров
@@ -109,9 +109,9 @@ gulp-webpack-starter
 │   │   │    └── variables.scss   - переменные
 │   │   ├── vendors               - папка для внешних скриптов и библиотек
 │   │   │    └── libs.scss        - место где подключать все стили внешних библиотек
-│   │   └── example.scss          -
+│   │   └── example.scss          - файл где собраны все стили для проекта/страницы
 │   └── views                     - HTML компоненты сайта
-│        ├── includes             -
+│        ├── includes             - блоки
 │        │    ├── common          - папка с переиспользуемыми блоками
 │        │    └── front           - пример папки с блоками для одной страницы
 │        └── example.html         - пример страницы
@@ -131,36 +131,18 @@ gulp-webpack-starter
     * ```webpack.config.js``` — настройки Webpack
     * ```package.json``` — список зависимостей
 * Папка ```src``` - используется во время разработки:
-    * БЭМ-блоки: ```src/blocks```
     * шрифты: ```src/fonts```
     * изображения: ```src/img```
     * JS-файлы: ```src/js```
-    * страницы сайта: ```src/views/pages```
     * SCSS-файлы: ```src/styles```
     * HTML-файлы: ```src/views```
-    * конфигурационный файл веб-сервера Apache с настройками [gzip](https://habr.com/ru/post/221849/) (сжатие без потерь): ```src/.htaccess```
-* Папка ```dist``` - папка, из которой запускается локальный сервер для разработки (при запуске ```yarn run dev```)
+* Папка ```assets``` - папка, из которой запускается локальный сервер для разработки (при запуске ```yarn run dev```)
 * Папка ```gulp-tasks``` - папка с Gulp-тасками
 
 ## :keyboard: Команды
-* ```yarn run lint:styles``` - проверить SCSS-файлы. Для VSCode необходимо установить [плагин](https://marketplace.visualstudio.com/items?itemName=shinnn.stylelint). Для WebStorm
-или PHPStorm необходимо включить Stylelint в ```Languages & Frameworks - Style Sheets - Stylelint``` (ошибки будут исправлены автоматически при сохранении файла)
-* ```yarn run lint:styles --fix``` - исправить ошибки в SCSS-файлах
-* ```yarn run lint:scripts``` - проверить JS-файлы
-* ```yarn run lint:scripts --fix``` - исправить ошибки в JS-файлах
-* ```yarn run dev``` - запуск сервера для разработки проекта
-* ```yarn run build``` - собрать проект с оптимизацией без запуска сервера
-* ```yarn run build:views``` - собрать HTML-файлы
-* ```yarn run build:styles``` - скомпилировать SCSS-файлы
-* ```yarn run build:scripts``` - собрать JS-файлы
-* ```yarn run build:images``` - собрать изображения
-* ```yarn run build:webp``` - сконвертировать изображения в формат ```.webp```
-* ```yarn run build:sprites```- собрать спрайты
-* ```yarn run build:fonts``` - собрать шрифты
-* ```yarn run build:favicons``` - собрать фавиконки
-* ```yarn run build:gzip``` - собрать конфигурацию Apache
-* ```yarn run bem-m``` - добавить БЭМ-блок
-* ```yarn run bem-c``` - добавить компонент
+* ```npm run dev``` - запуск сервера для разработки проекта с HTML
+* ```npm run watch``` - запуск вотчеров которые следят за изменениями без запуска сервера
+* ```npm run build``` - собрать проект с оптимизацией без запуска сервера
 
 ## :bulb: Рекомендации по использованию
 ### Компонентный подход к разработке сайтов
